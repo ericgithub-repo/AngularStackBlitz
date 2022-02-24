@@ -10,7 +10,7 @@ import { HelloService } from './hello.service';
 
 export class HelloComponent implements OnInit {
   @Input() name: string;
-  pcgList: string[] = [];
+  pcgList: string;
 
   constructor(private helloService: HelloService) {}
 

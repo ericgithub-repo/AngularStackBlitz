@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import {enableProdMode} from '@angular/core';
 
 @Injectable()
 export class HelloService {
@@ -10,11 +12,14 @@ export class HelloService {
   constructor(private http: HttpClient) {}
 
   /** GET pcg from the server */
-  getPCG(): Observable<string[]> {
-    return this.http
-      .get<string[]>(this.apiUrl)
-      .pipe
-      //error
-      ();
+  getPCG(): Observable<string> {
+    enableProdMode();
+    return this.http.get<any>(this.apiUrl).pipe(
+      catchError((err) => {
+        console.log('error caught in service');
+        console.error(err);
+        return err;
+      })
+    );
   }
 }
