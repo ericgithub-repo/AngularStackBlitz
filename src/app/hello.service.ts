@@ -15,10 +15,15 @@ export class HelloService {
   getPCG(): Observable<string> {
     enableProdMode();
     return this.http.get<any>(this.apiUrl).pipe(
-      catchError((err) => {
+      /*catchError((err) => {
         console.log('error caught in service');
         console.error(err);
         return err;
+      })*/
+      map((res) => {
+        // changed the subscribe
+        console.log(res);
+        return res;
       })
     );
   }
