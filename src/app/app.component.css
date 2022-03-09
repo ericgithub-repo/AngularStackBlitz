@@ -3,8 +3,11 @@ p {
 }
 .hello-container {
   background-color: blue;
-  height: 50px;
+  height: auto;
+  padding: 10px;
 }
 .backcolor {
-  background-color: red;
+  background-color: white;
+  padding: 5px;
+  list-style: none;
 }

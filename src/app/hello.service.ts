@@ -24,6 +24,7 @@ export class HelloService {
 }
 // public API
 public getPCG() : Observable<any> {
+    //enableProdMode();
     // HttpClient.get() returns the body of the response as an untyped JSON object.
     // We specify the type as SomeClassOrInterfaceto get a typed result.
     return this._http.get<any>(this.url)
