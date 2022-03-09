@@ -7,10 +7,9 @@ import { HelloService } from './hello.service';
   providers: [HelloService],
   styleUrls: ['./app.component.css'],
 })
-
 export class HelloComponent implements OnInit {
   @Input() name: string;
-  pcgList: string;
+  pcgList: any[];
 
   constructor(private helloService: HelloService) {}
 
